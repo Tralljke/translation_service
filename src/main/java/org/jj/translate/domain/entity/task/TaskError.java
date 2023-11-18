@@ -8,6 +8,8 @@ public final class TaskError {
     public static final String TASK_IDENTIFIER_ILLEGAL_VALUE = "fec34e82-002";
     public static final String LANG_VALUE_REQUIRED = "fec34e82-003";
     public static final String LANG_ILLEGAL_VALUE = "fec34e82-004";
+    public static final String TEXT_VALUE_REQUIRED = "fec34e82-005";
+    public static final String TEXT_LARGE_VALUE = "fec34e82-006";
 
     public static CodedException errTaskIdentifierValueRequired() {
         var msg = "Value for a task identifier is required";
@@ -23,7 +25,16 @@ public final class TaskError {
         return new CodedException(LANG_VALUE_REQUIRED, msg);
     }
 
-    private TaskError() {
+    public static CodedException errTextValueIsRequired() {
+        var msg = "Value for a Text is required";
+        return new CodedException(TEXT_VALUE_REQUIRED, msg);
     }
 
+
+    public static CodedException errTextValueIsLarge() {
+        var msg = "Value for a Text is large";
+        return new CodedException(TEXT_LARGE_VALUE, msg);
+    }
+
+    private TaskError() {}
 }

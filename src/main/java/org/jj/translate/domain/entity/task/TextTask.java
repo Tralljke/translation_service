@@ -4,6 +4,8 @@ public class TextTask {
     private TaskID id; //null
     private Lang sourceLang;
 
+    private Text sourceText;
+
     //Source Text
     //Target Lang
     //Translated Text
