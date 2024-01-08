@@ -1,11 +1,8 @@
 package org.jj.translate.domain.entity.task;
 
 import org.jj.translate.shared.exception.CodedException;
-import org.jj.translate.util.NumberGenerator;
 import org.jj.translate.util.StringGenerator;
 import org.junit.jupiter.api.Test;
-
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,9 +29,7 @@ class LangTest {
 
     @Test
     void of_ReturnLang() {
-        String[] languages = Locale.getISOLanguages();
-        var str = languages[NumberGenerator.getRandomNumber(0, languages.length - 1)];
-
+        var str = StringGenerator.getRandomString();
         var lang = Lang.of(str);
         assertEquals(str, lang.toString());
     }
