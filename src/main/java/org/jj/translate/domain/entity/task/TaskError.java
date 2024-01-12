@@ -32,8 +32,9 @@ public final class TaskError {
         var msg = "Value for a lang is required";
         return new CodedException(LANG_VALUE_REQUIRED, msg);
     }
+
     public static CodedException errLangIllegalValue(String value) {
-        var msg = "Value for a lang is illegal value: " + value;
+        var msg = String.format("Value for a lang is illegal value: [%s]", value);
         return new CodedException(LANG_ILLEGAL_VALUE, msg);
     }
 

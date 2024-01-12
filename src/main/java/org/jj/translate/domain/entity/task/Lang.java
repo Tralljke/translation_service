@@ -8,13 +8,13 @@ public class Lang {
 
     private final String value;
 
+    private final static List<String> languages = Arrays.asList(Locale.getISOLanguages());
+    
     public static Lang of(String value) {
         if (value == null || value.isBlank()) {
             throw TaskError.errLangValueRequired();
         }
-
-        List<String> languages = Arrays.asList(Locale.getISOLanguages());
-
+        
         if (!languages.contains(value)) {
             throw TaskError.errLangIllegalValue(value);
         }
