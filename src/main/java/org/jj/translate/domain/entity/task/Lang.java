@@ -1,14 +1,22 @@
 package org.jj.translate.domain.entity.task;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+
 public class Lang {
 
     private final String value;
-    //Проверка, что value - это две маленькие латинские буквы
-    //Либо найти библиотеку для этого
 
+    private final static List<String> languages = Arrays.asList(Locale.getISOLanguages());
+    
     public static Lang of(String value) {
         if (value == null || value.isBlank()) {
             throw TaskError.errLangValueRequired();
+        }
+        
+        if (!languages.contains(value)) {
+            throw TaskError.errLangIllegalValue(value);
         }
 
         return new Lang(value);
